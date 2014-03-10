@@ -43,6 +43,7 @@ $formBuilder->add('content', 'fsi_ckeditor', array(
         'formatTags' => null,
         'fontNames' => null,
         'fontSizeSizes' => null,
+        'stylesSet' => array(),
     )
 );
 ```
@@ -61,6 +62,7 @@ $formBuilder->add('content', 'fsi_ckeditor', array(
 - ``formatTags`` - string (default ``p;h1;h2;h3;h4;h5;h6;pre;address;div``)
 - ``fontNames`` - string (``{display_name}/{font_name},{alternative_font_name};{display_name}/{font_name}``)
 - ``fontSizeSizes`` - string (``{display_name}/{font_size};{display_name}/{font_size}``)
+- ``stylesSet`` - array
 
 ## CKEditor script
 

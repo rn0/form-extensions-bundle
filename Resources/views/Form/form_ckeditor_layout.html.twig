@@ -18,6 +18,10 @@
         options = JSON && JSON.parse(optionsData) || eval(optionsData);
 
     CKEDITOR.replace('{{ form.vars.id }}', options);
+
+    {% for styleName, styleDefinitions in styles_set  %}
+    CKEDITOR.stylesSet.add('{{ styleName }}', {{ styleDefinitions|json_encode|raw }});
+    {% endfor %}
 </script>
 {% endspaceless %}
 {% endblock %}

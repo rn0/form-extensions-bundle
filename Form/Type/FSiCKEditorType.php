@@ -42,7 +42,15 @@ class FSiCKEditorType extends AbstractType
             'font_names' => $options['fontNames'],
             'fontSize_sizes' => $options['fontSizeSizes'],
         );
+
+        if (!empty($options['stylesSet'])) {
+            $stylesToolbar = array_pop($ckeditorOptions['toolbar']);
+            $stylesToolbar['items'][] = 'Styles';
+            $ckeditorOptions['toolbar'][] = $stylesToolbar;
+        }
+
         $view->vars['ckeditor_config'] = array_filter($ckeditorOptions);
+        $view->vars['styles_set'] = $options['stylesSet'];
     }
 
     /**
@@ -81,6 +89,7 @@ class FSiCKEditorType extends AbstractType
             'formatTags' => null,
             'fontNames' => null,
             'fontSizeSizes' => null,
+            'stylesSet' => array(),
         ));
 
         $resolver->setAllowedValues(array(
@@ -104,6 +113,7 @@ class FSiCKEditorType extends AbstractType
             'formatTags' => array('string', 'null'),
             'fontNames' => array('string', 'null'),
             'fontSizeSizes' => array('string', 'null'),
+            'stylesSet' => array('array'),
         ));
 
         $resolver->setNormalizers(array(
